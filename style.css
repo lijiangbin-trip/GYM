@@ -26,6 +26,9 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
+
+
+
 .display {
   font-family: 'Barlow Condensed', 'Noto Sans SC', sans-serif;
   text-transform: uppercase;
@@ -1390,65 +1393,46 @@ nav.footer-nav {
   right: 16px !important;
   z-index: 20 !important;
 }
-/* 右下角跳动箭头按钮：保持与导航同款微透黑色玻璃拟态 */
+/* 右下角跳动箭头按钮：固定在屏幕右下角，位于导航栏下方 */
 .hero-scroll-btn {
   position: absolute !important;
-  right: 20px !important;
-  bottom: 12px !important;
-  width: 38px !important;
-  height: 38px !important;
+  right: 40px !important;                               /* 往左移一点，不那么贴边 */
+  left: auto !important;
+  bottom: 4px !important;                                /* 放到屏幕最底部（导航栏下方） */
+  transform: none !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background: rgba(20, 24, 28, 0.65) !important;       /* 与导航栏一致的半透明底色 */
-  backdrop-filter: blur(8px) !important;                /* 磨砂毛玻璃质感 */
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;/* 极细微高光边框 */
-  border-radius: 50% !important;                       /* 精致圆形胶囊按键 */
-  color: #c6f135 !important;                            /* 荧光黄绿同款高亮箭头颜色 */
-  z-index: 30 !important;
-  text-decoration: none !important;
-  cursor: pointer !important;
-  animation: heroBounce 1.8s infinite ease-in-out !important; /* 上下循环轻盈跳动 */
-}
-
-/* 放大版：三个荧光绿小箭头自由跳动 */
-.hero-scroll-btn {
-  position: absolute !important;
-  right: 20px !important;                               /* 稍微移向边缘 */
-  bottom: 16px !important;                              /* 放在底部 */
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: none !important;                          /* 无背景 */
-  backdrop-filter: none !important;                     /* 无毛玻璃 */
-  border: none !important;                              /* 无边框 */
+  background: none !important;                           /* 无背景 */
+  backdrop-filter: none !important;                      /* 无毛玻璃 */
+  border: none !important;                               /* 无边框 */
   border-radius: 0 !important;
   width: auto !important;
   height: auto !important;
-  color: #c6f135 !important;                            /* 荧光黄绿同款高亮 */
-  z-index: 30 !important;
+  color: #c6f135 !important;                             /* 荧光黄绿同款高亮 */
+  z-index: 999 !important;                               /* 层级最高 */
   text-decoration: none !important;
   cursor: pointer !important;
   animation: heroBounce 1.8s infinite ease-in-out !important; /* 优雅上下循环跳动 */
 }
 
-/* 三个箭头的垂直容器 */
+/* 三个箭头竖向排列，互不遮挡 */
 .hero-scroll-btn .arrows-container {
   display: flex !important;
-  flex-direction: column !important;                    /* 垂直堆叠 */
+  flex-direction: column !important;                    /* 竖向排列 */
   align-items: center !important;
   justify-content: center !important;
-  gap: 0px !important;                                  /* 紧凑堆叠 */
+  gap: 0px !important;                                  /* 间距紧凑，三个箭头紧贴 */
 }
 
-/* 极大化 & 加粗每个小 V 箭头 */
+/* 极小化：三个 V 箭头紧密嵌套，整体更矮，避免顶到导航栏 */
 .hero-scroll-btn svg {
-  width: 28px !important;                               /* 大幅放大：由 16px 升级到 28px */
-  height: 28px !important;
-  stroke-width: 3.5px !important;                       /* 极力加粗：由 2.5px 升级到 3.5px 粗细，增强视觉存在感 */
-  margin-top: -14px !important;                         /* 负间距实现精致的 VVV 嵌套效果 */
+  width: 22px !important;                               /* 尺寸再缩小 */
+  height: 22px !important;
+  stroke-width: 2px !important;                         /* 线条保持纤细 */
+  margin-top: -12px !important;                         /* 负间距让三个箭头紧贴嵌套，整体高度大幅降低 */
   display: block !important;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)) !important; /* 给箭头底部加一点投影，防止被暗色背景完全吞噬 */
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4)) !important; /* 轻微投影 */
 }
 
 .hero-scroll-btn svg:first-child {
@@ -1461,7 +1445,7 @@ nav.footer-nav {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(6px);                        /* 弹跳幅度稍微加一点点，让它在没圈时更灵动 */
+    transform: translateY(5px);                        /* 轻盈跳动 */
   }
 }
 /* 确保移动端容器撑满视口宽度 */
@@ -1571,4 +1555,208 @@ nav.footer-nav a,
   font-size: 14.5px !important;     /* 从 13px 放大到 14.5px */
   font-weight: 600 !important;
   padding: 9px 12px !important;
+}
+
+/* ================= 日语版导航按钮字体适配：日语词更长，单独调小避免溢出 ================= */
+html[lang="ja"] .home-section-nav a {
+  font-size: 11.5px !important;       /* 日语词更长（トレーニング/日々の暮らし），字体调小 */
+  padding: 8px 4px !important;        /* 左右内边距收窄，给文字留出空间 */
+  letter-spacing: -0.02em !important; /* 轻微紧缩字距，进一步防溢出 */
+}
+
+@media (max-width: 420px) {
+  html[lang="ja"] .home-section-nav a {
+    font-size: 10.5px !important;     /* 小屏再调小一档 */
+    padding: 7px 3px !important;
+  }
+}
+
+/* ================= 首屏名字：字体加大 + 透视角灰色玻璃背景（高级质感） ================= */
+.long-home-hero-copy .showcase-name {
+  display: inline-block !important;                     /* 背景只包裹文字，不通宽 */
+  font-size: 52px !important;                           /* 名字大幅放大，气场更强 */
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+    padding: 8px 28px !important;                         /* 内边距撑开背景，文字不贴边 */
+  margin-left: -28px !important;                        /* 左移一个内边距的量，使框内文字与下方文字左对齐 */
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45) !important; /* 文字投影，更立体 */
+  background: linear-gradient(
+    135deg,
+    rgba(150, 158, 168, 0.28),
+    rgba(90, 96, 104, 0.14)
+  ) !important;                                         /* 半透明灰色渐变玻璃，带透视层次 */
+  backdrop-filter: blur(14px) saturate(1.5) !important; /* 透视毛玻璃 */
+  -webkit-backdrop-filter: blur(14px) saturate(1.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important; /* 极细高光描边 */
+  border-radius: 4px !important;                        /* 轻微圆角，更精致 */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),           /* 顶部内高光，玻璃感 */
+    inset 0 0 40px rgba(255, 255, 255, 0.04),
+    0 10px 34px rgba(0, 0, 0, 0.32) !important;        /* 外投影，浮起立体 */
+}
+
+/* 小屏适配：字号与内边距同步收窄，避免溢出 */
+@media (max-width: 700px) {
+  .long-home-hero-copy .showcase-name {
+    font-size: 40px !important;
+    padding: 6px 20px !important;
+    margin-left: -20px !important;                     /* 与内边距一致，保持左对齐 */
+  }
+}
+
+@media (max-width: 390px) {
+  .long-home-hero-copy .showcase-name {
+    font-size: 32px !important;
+    padding: 5px 16px !important;
+    margin-left: -16px !important;                     /* 与内边距一致，保持左对齐 */
+  }
+}
+
+/* ================= 底部社交按钮：四个等宽方框 + 品牌配色 + 点击动画 ================= */
+.long-home-content > .social-actions {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+  justify-content: initial !important;
+  /* 底部留出足够空间，整体抬到固定导航栏之上，避免被遮挡 */
+  padding: 42px 0 168px !important;
+}
+
+.long-home-content > .social-actions .social-cta {
+  position: relative !important;
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 82px !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  padding: 0 12px !important;
+  border: 1px solid rgba(255, 255, 255, .22) !important;
+  border-radius: 12px !important;
+  background: rgba(18, 20, 22, .55) !important;
+  color: #fff !important;
+  font-size: .92rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .03em !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  isolation: isolate !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .18),
+    0 8px 22px rgba(0, 0, 0, .32) !important;
+  transition:
+    transform .18s cubic-bezier(.2, .85, .25, 1.2),
+    box-shadow .25s ease,
+    border-color .25s ease,
+    filter .25s ease !important;
+}
+
+/* 品牌渐变色冲层：平时低透明度，悬停/点击时显现，保持文字清晰 */
+.long-home-content > .social-actions .social-cta::before {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: var(--brand, linear-gradient(135deg, #555, #333)) !important;
+  opacity: .55 !important;
+  transition: opacity .25s ease !important;
+  content: '' !important;
+}
+
+/* 点击/悬停时的光泽扫过 */
+.long-home-content > .social-actions .social-cta::after {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .35) 50%, transparent 70%) !important;
+  opacity: 0 !important;
+  transform: translateX(-120%) !important;
+  content: '' !important;
+}
+
+/* 各 App 品牌色基调 */
+.long-home-content > .social-actions .social-cta[data-i18n="social_instagram"] {
+  --brand: linear-gradient(135deg, #feda75 0%, #fa7e1e 28%, #d62976 58%, #962fbf 80%, #4f5bd5 100%);
+}
+.long-home-content > .social-actions .social-cta[data-i18n="social_whatsapp"] {
+  --brand: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+.long-home-content > .social-actions .social-cta[data-i18n="social_line"] {
+  --brand: linear-gradient(135deg, #06c755 0%, #029b45 100%);
+}
+.long-home-content > .social-actions .social-cta[data-i18n="social_wechat"] {
+  --brand: linear-gradient(135deg, #2ddc4f 0%, #07c160 55%, #12832a 100%);
+}
+
+/* 悬停：上浮 + 品牌色饱满 + 边框发光 */
+.long-home-content > .social-actions .social-cta:hover {
+  transform: translateY(-4px) scale(1.03) !important;
+  border-color: rgba(255, 255, 255, .55) !important;
+  filter: saturate(1.25) brightness(1.05) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .28),
+    0 14px 30px rgba(0, 0, 0, .42) !important;
+}
+.long-home-content > .social-actions .social-cta:hover::before { opacity: .9 !important; }
+.long-home-content > .social-actions .social-cta:hover::after {
+  opacity: 1 !important;
+  transform: translateX(120%) !important;
+  transition: transform .6s ease, opacity .3s ease !important;
+}
+
+/* 按下：瞬间回弹压缩，制造“点击”手感 */
+.long-home-content > .social-actions .social-cta:active {
+  transform: translateY(-1px) scale(.93) !important;
+  filter: saturate(1.4) brightness(1.15) !important;
+  transition: transform .08s ease !important;
+}
+
+/* 点击时触发的回弹动画（由 JS 添加 .is-tapped） */
+.long-home-content > .social-actions .social-cta.is-tapped {
+  animation: socialTap .5s cubic-bezier(.2, .85, .25, 1.3) !important;
+}
+@keyframes socialTap {
+  0%   { transform: scale(.92); }
+  45%  { transform: scale(1.08); }
+  70%  { transform: scale(.97); }
+  100% { transform: scale(1); }
+}
+
+.long-home-content > .social-actions .social-cta:focus-visible {
+  outline: 2px solid #fff !important;
+  outline-offset: 3px !important;
+}
+
+@media (max-width: 700px) {
+  .long-home-content > .social-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 30px 0 150px !important;
+  }
+  .long-home-content > .social-actions .social-cta {
+    min-height: 66px !important;
+    font-size: .84rem !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .long-home-content > .social-actions {
+    padding: 26px 0 140px !important;
+  }
+  .long-home-content > .social-actions .social-cta {
+    min-height: 58px !important;
+    font-size: .78rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .long-home-content > .social-actions .social-cta,
+  .long-home-content > .social-actions .social-cta::after { transition: none !important; }
+  .long-home-content > .social-actions .social-cta.is-tapped { animation: none !important; }
 }
