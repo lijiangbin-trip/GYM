@@ -355,3 +355,162 @@
     });
   }
 })();
+
+/* =====================================================================
+   #footprints 四大支柱照片：暗黑机能风灯箱（Lightbox）
+   - 点击 .pillar-media 平滑弹出全屏毛玻璃模态框
+   - 动态读取当前卡片的标题与认证标签作为图注
+   - 关闭：× 按钮 / 点击空白遮罩 / 点击图片本身 / ESC 键
+   - 打开时禁止背景页面滚动
+   ===================================================================== */
+(() => {
+  const modal = document.getElementById('photo-modal');
+  if (!modal) return;
+
+  const modalImg = document.getElementById('photo-modal-img');
+  const modalTitle = document.getElementById('photo-modal-title');
+  const modalCredential = document.getElementById('photo-modal-credential');
+  const medias = [...document.querySelectorAll('.pillar-media')];
+  if (!medias.length) return;
+
+  let lastFocused = null;
+
+  function openModal(media) {
+    const img = media.querySelector('img');
+    if (!img) return;
+    const card = media.closest('.pillar-card');
+    const titleEl = card ? card.querySelector('.pillar-title') : null;
+    const tagEl = card ? card.querySelector('.pillar-tag') : null;
+    const credEl = card ? card.querySelector('.pillar-credential') : null;
+
+    modalImg.src = img.currentSrc || img.src;
+    modalImg.alt = img.alt || '';
+    modalTitle.textContent = titleEl ? titleEl.textContent.trim() : (img.alt || '');
+    const credText = credEl ? credEl.textContent.trim() : '';
+    const tagText = tagEl ? tagEl.textContent.trim() : '';
+    modalCredential.textContent = credText || tagText;
+    modalCredential.hidden = !(credText || tagText);
+
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add('photo-modal-open');
+    // 强制重排后加 is-open，确保过渡动画可重复触发
+    void modal.offsetWidth;
+    modal.classList.add('is-open');
+    modal.querySelector('.photo-modal-close')?.focus();
+  }
+
+  function closeModal() {
+    if (modal.hidden) return;
+    modal.classList.remove('is-open');
+    document.body.classList.remove('photo-modal-open');
+    const finish = () => {
+      modal.hidden = true;
+      modalImg.src = '';
+      modal.removeEventListener('transitionend', finish);
+    };
+    // 等待淡出过渡结束再隐藏；兜底 500ms
+    modal.addEventListener('transitionend', finish);
+    window.setTimeout(finish, 500);
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  }
+
+  medias.forEach((media) => {
+    media.addEventListener('click', () => openModal(media));
+    media.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openModal(media);
+      }
+    });
+  });
+
+  // 关闭交互：× 按钮 / 遮罩空白处 / 图片本身
+  modal.querySelectorAll('[data-photo-close]').forEach((el) => {
+    el.addEventListener('click', closeModal);
+  });
+  modalImg.addEventListener('click', closeModal);
+
+  // ESC 键关闭
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();
+
+/* =====================================================================
+   #honors 身体指标：横向单排 4 联胶囊按键 + 下方详情切换
+   - 点击 .metric-tab-btn 切换 active 状态
+   - 同步显示对应 data-metric 的 .metric-detail-item
+   - 支持键盘左右方向键切换
+   ===================================================================== */
+(() => {
+  const strip = document.querySelector('.metrics-horizontal-strip');
+  if (!strip) return;
+
+  const tabs = [...strip.querySelectorAll('.metric-tab-btn')];
+  const details = [...strip.querySelectorAll('.metric-detail-item')];
+  if (!tabs.length || !details.length) return;
+
+  function activate(index) {
+    tabs.forEach((tab, i) => {
+      const on = i === index;
+      tab.classList.toggle('active', on);
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    details.forEach((item, i) => {
+      item.classList.toggle('active', i === index);
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(index));
+    tab.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault();
+        const dir = event.key === 'ArrowRight' ? 1 : -1;
+        const next = (index + dir + tabs.length) % tabs.length;
+        tabs[next].focus();
+        activate(next);
+      }
+    });
+  });
+})();
+
+/* =====================================================================
+   #footprints 数据面板：2×2 极简机能四宫格 + 下方动态展开解析
+   - 点击 .stat-btn 切换 active 状态
+   - 同步显示对应 data-stat 的 .stat-detail-content
+   - 支持键盘左右方向键切换
+   ===================================================================== */
+(() => {
+  const wrap = document.querySelector('.stats-matrix-wrap');
+  if (!wrap) return;
+
+  const btns = [...wrap.querySelectorAll('.stat-btn')];
+  const contents = [...wrap.querySelectorAll('.stat-detail-content')];
+  if (!btns.length || !contents.length) return;
+
+  function activate(index) {
+    btns.forEach((btn, i) => {
+      const on = i === index;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    contents.forEach((item, i) => {
+      item.classList.toggle('active', i === index);
+    });
+  }
+
+  btns.forEach((btn, index) => {
+    btn.addEventListener('click', () => activate(index));
+    btn.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault();
+        const dir = event.key === 'ArrowRight' ? 1 : -1;
+        const next = (index + dir + btns.length) % btns.length;
+        btns[next].focus();
+        activate(next);
+      }
+    });
+  });
+})();
