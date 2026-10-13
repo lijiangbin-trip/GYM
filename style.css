@@ -71,8 +71,10 @@ button { font: inherit; }
 
 .site-header.home-header .language-switcher {
   position: absolute;
-  top: 18px;
-  left: max(28px, calc((100vw - var(--content)) / 2));
+  top: calc(14px + env(safe-area-inset-top));
+  left: 16px;
+  right: auto;
+  z-index: 50;
 }
 
 .language-switcher {
@@ -83,22 +85,25 @@ button { font: inherit; }
 
 .language-toggle {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
   place-items: center;
-  border: 1px solid transparent;
+  border: 0;
+  border-radius: 0;
   background: transparent;
-  color: rgba(244, 243, 239, .46);
+  color: rgba(244, 243, 239, .38);
   cursor: pointer;
-  opacity: .62;
-  transition: border-color .2s ease, color .2s ease, opacity .2s ease;
+  opacity: .55;
+  transition: opacity .25s ease, color .25s ease;
 }
 
 .language-toggle:hover,
+.language-toggle:focus-visible,
 .language-toggle[aria-expanded="true"] {
-  border-color: var(--line);
-  color: var(--accent);
   opacity: 1;
+  color: rgba(244, 243, 239, .9);
+  outline: none;
 }
 
 .language-toggle svg { width: 17px; height: 17px; }
@@ -107,11 +112,13 @@ button { font: inherit; }
   position: absolute;
   top: calc(100% + 9px);
   left: 0;
+  right: auto;
   display: grid;
   min-width: 152px;
   gap: 3px;
   padding: 6px;
   border: 1px solid var(--line);
+  border-radius: 14px;
   background: rgba(25, 28, 30, .97);
   box-shadow: 0 12px 32px #0006;
   opacity: 0;
@@ -1205,8 +1212,12 @@ body.showcase-body {
 }
 
 @media (max-width: 700px) {
-  .site-header.home-header .language-switcher { top: 12px; left: 12px; }
-  .language-toggle { color: rgba(244, 243, 239, .68); }
+  .site-header.home-header .language-switcher {
+    top: calc(12px + env(safe-area-inset-top));
+    left: 12px;
+    right: auto;
+  }
+  .language-toggle { color: rgba(244, 243, 239, .38); }
   .showcase-copy {
     right: 18px;
     bottom: 136px;
@@ -4321,31 +4332,6 @@ body {
   }
 }
 
-/* ---------- 2b. 全面屏顶部安全区适配（刘海/状态栏黑边防遮挡） ---------- */
-/* 语言切换器：下移到刘海/状态栏之下，避免被黑边遮挡 */
-.site-header.home-header .language-switcher {
-  top: max(18px, calc(env(safe-area-inset-top) + 14px));
-}
-/* 首页 Hero：顶部内边距叠加安全区，确保文字不被刘海/状态栏遮挡，
-   同时保留原有呼吸感，不挤压、不遮挡下方内容 */
-.long-home-hero-visual {
-  padding-top: calc(clamp(300px, 39svh, 420px) + env(safe-area-inset-top));
-}
-@media (max-width: 700px) {
-  .site-header.home-header .language-switcher {
-    top: max(12px, calc(env(safe-area-inset-top) + 10px));
-    left: max(12px, calc(env(safe-area-inset-left) + 12px));
-  }
-  .long-home-hero-visual {
-    padding-top: calc(clamp(260px, 34svh, 340px) + env(safe-area-inset-top));
-  }
-}
-@media (max-width: 700px) and (max-height: 820px) {
-  .long-home-hero-visual {
-    padding-top: calc(clamp(150px, 23svh, 190px) + env(safe-area-inset-top));
-  }
-}
-
 /* ---------- 3. 横滑容器：iOS 惯性滚动 + 强制吸附 ---------- */
 .showcase-track,
 .meal-cards-stage {
@@ -4416,9 +4402,9 @@ body {
 }
 
 /* =====================================================================
-   页脚：独立开发者署名（低调暗黑风）
-   - .site-footer：底部留白，为悬浮 Dock 预留空间 + 安全区
-   - .studio-credit-badge：胶囊徽章，暗色玻璃 + 荧光描边
+   页脚：独立开发者署名（低调暗黑机能风）
+   - .site-footer：底部留白，为悬浮 Dock 预留空间 + 全面屏安全区
+   - .studio-credit-badge：微透暗黑机能小胶囊
    - .credit-tel：电话链接，荧光高亮 + 箭头微动
    ===================================================================== */
 .site-footer {
@@ -4426,110 +4412,84 @@ body {
   z-index: 1;
   display: flex;
   justify-content: center;
-  padding: 8px 20px calc(120px + env(safe-area-inset-bottom));
+  padding: 0 20px calc(120px + env(safe-area-inset-bottom));
 }
 
+/* 开发者署名外层容器 */
 .site-credit-wrap {
   display: flex;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom)); /* 适配 iOS 安全区小黑条 */
 }
 
+/* 微透暗黑机能小胶囊 */
 .studio-credit-badge {
   display: inline-flex;
-  flex-wrap: wrap;
   align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 8px 10px;
-  padding: 10px 18px;
-  border: 1px solid rgba(255, 255, 255, .1);
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 999px;
-  background: rgba(17, 18, 21, .62);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, .06),
-    0 12px 30px -18px rgba(0, 0, 0, .85);
-  backdrop-filter: blur(12px) saturate(1.4);
-  -webkit-backdrop-filter: blur(12px) saturate(1.4);
-  color: var(--muted);
-  font-size: .72rem;
-  letter-spacing: .04em;
-  line-height: 1.4;
-  text-align: center;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
 }
 
-.credit-brand {
-  color: rgba(200, 202, 198, .82);
-  white-space: nowrap;
+.studio-credit-badge:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-.credit-brand .brand-name {
-  color: var(--accent);
-  font-weight: 800;
-  letter-spacing: .08em;
+/* 品牌厂牌强调 */
+.studio-credit-badge .brand-name {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
-.credit-divider {
-  color: rgba(255, 255, 255, .22);
+.studio-credit-badge .credit-divider {
+  color: rgba(255, 255, 255, 0.2);
 }
 
-.credit-service {
-  color: rgba(165, 167, 164, .78);
-  white-space: nowrap;
+.studio-credit-badge .credit-service {
+  color: rgba(255, 255, 255, 0.45);
 }
 
-.credit-tel {
+/* 电话链接：低调高亮，悬浮/点击微光 */
+.studio-credit-badge .credit-tel {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 3px 10px;
-  border: 1px solid rgba(220, 255, 0, .35);
-  border-radius: 999px;
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: .06em;
+  gap: 3px;
+  color: #dcff00; /* 主题机能荧光绿 */
   text-decoration: none;
-  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+  font-weight: 500;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
-.credit-tel .tel-num {
-  font-variant-numeric: tabular-nums;
+.studio-credit-badge .credit-tel:active {
+  opacity: 0.7;
+  transform: scale(0.97);
 }
 
-.credit-tel .arrow-icon {
-  flex: 0 0 auto;
-  display: block;
-  transition: transform .25s ease;
+.studio-credit-badge .arrow-icon {
+  stroke: currentColor;
+  transition: transform 0.2s ease;
 }
 
-.credit-tel:hover,
-.credit-tel:focus-visible {
-  border-color: rgba(220, 255, 0, .8);
-  box-shadow: 0 0 18px -6px rgba(220, 255, 0, .7);
-  transform: translateY(-1px);
-  outline: none;
-}
-
-.credit-tel:hover .arrow-icon,
-.credit-tel:focus-visible .arrow-icon {
-  transform: translate(2px, -2px);
+.studio-credit-badge .credit-tel:hover .arrow-icon {
+  transform: translate(1px, -1px);
 }
 
 @media (max-width: 700px) {
   .site-footer {
-    padding: 8px 16px calc(104px + env(safe-area-inset-bottom));
-  }
-  .studio-credit-badge {
-    gap: 6px 8px;
-    padding: 9px 14px;
-    font-size: .66rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .credit-tel,
-  .credit-tel .arrow-icon {
-    transition: none;
+    padding: 0 16px calc(104px + env(safe-area-inset-bottom));
   }
 }
