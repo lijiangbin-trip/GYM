@@ -8,12 +8,23 @@
   let scheduled = false;
 
   // 将荧光胶囊滑动到当前激活项下方
+  // 注意：.home-section-nav 带有 transform: translateX(50%) 用于水平居中，
+  // 若用 getBoundingClientRect() 计算偏移会因坐标系不一致导致胶囊错位。
+  // 这里改用 offsetLeft / offsetWidth（相对定位父级的布局值，不受 transform 影响），
+  // 并扣除导航内边距，使胶囊精确对齐当前激活项。
   function moveGlow(activeLink) {
     if (!glow || !nav || !activeLink) return;
-    const navRect = nav.getBoundingClientRect();
-    const linkRect = activeLink.getBoundingClientRect();
-    const offset = linkRect.left - navRect.left;
-    glow.style.width = `${linkRect.width}px`;
+    const styles = window.getComputedStyle(nav);
+    const padLeft = parseFloat(styles.paddingLeft) || 0;
+    const padTop = parseFloat(styles.paddingTop) || 0;
+    const padBottom = parseFloat(styles.paddingBottom) || 0;
+    // 胶囊基准点与导航内边距保持一致，避免硬编码 left/top 与 padding 不同步导致错位
+    glow.style.left = `${padLeft}px`;
+    glow.style.top = `${padTop}px`;
+    glow.style.height = `${nav.clientHeight - padTop - padBottom}px`;
+    // offsetLeft 相对导航边框盒（含 padding-left），扣除后得到相对内容区的偏移
+    const offset = activeLink.offsetLeft - padLeft;
+    glow.style.width = `${activeLink.offsetWidth}px`;
     glow.style.transform = `translateX(${offset}px)`;
     glow.style.opacity = '1';
   }
