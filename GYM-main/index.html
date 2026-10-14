@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#111315">
+  <!-- 苹果系统兼容：状态栏样式 / 添加到主屏后的全屏体验 / 禁止自动识别电话号码 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dir.木山·青司">
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+  <title data-i18n="title_home">Dir.木山·青司｜ホーム</title>
+  <!-- 字体：改用国内可访问 CDN 镜像，避免 Google Fonts 被墙拖慢；异步加载不阻塞首屏；系统字体兜底 -->
+  <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>.reveal-item,.reveal-heading{opacity:1!important;transform:none!important;filter:none!important;}</style></noscript>
+</head>
+<body class="long-home">
+  <header class="site-header home-header">
+    <div class="language-switcher">
+      <button class="language-toggle" type="button" aria-label="言語を選択" data-i18n-aria="language_toggle" aria-expanded="false" aria-haspopup="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>
+      </button>
+      <div class="language-menu" role="radiogroup" aria-label="言語" data-i18n-aria="language_menu">
+        <button class="language-option" type="button" data-language="ja" role="radio">日本語</button>
+        <button class="language-option" type="button" data-language="en" role="radio">English</button>
+        <button class="language-option" type="button" data-language="zh" role="radio">简体中文</button>
+      </div>
+    </div>
+  </header>
+  <main class="long-home-content">
+<section class="long-home-hero" id="me" aria-labelledby="home-title">
+      <div class="long-home-hero-visual">
+        <img class="long-home-hero-photo" src="photos/coach-portrait.jpg" alt="" aria-hidden="true" decoding="async" fetchpriority="high">
+        <div class="long-home-hero-shade"></div>
+        <span class="long-home-scroll-hint"><span data-i18n="scroll_hint">SCROLL TO EXPLORE</span><i aria-hidden="true"></i></span>
+      </div>
+      <div class="long-home-hero-copy">
+        <h1 id="home-title"><span class="showcase-name" data-i18n="showcase_name">Dir.木山·青司</span><span class="showcase-title" data-i18n="cover_title">身体是一座精密的建筑。</span></h1>
+        <p class="showcase-description" data-i18n="cover_text">生物力学 × 功能营养学。迈向没有代偿动作、更加精炼的身体。</p>
+        <div class="home-intro-list">
+          <div data-i18n="home_point_one">01: 动作与姿态评估</div>
+          <div data-i18n="home_point_two">02: 饮食习惯与营养平衡</div>
+          <div data-i18n="home_point_three">03: 视觉与身体掌控</div>
+          <div data-i18n="home_point_four">04: 休息与状态调节</div>
+        </div>
+      </div>
+      <!-- 三个向下跳动箭头按钮 -->
+      <a href="#footprints" class="hero-scroll-btn" aria-label="向下滚动查看详情">
+        <div class="arrows-container">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </a>
+    </section>
+    <section class="page-wrap resume-page long-home-section" id="footprints" aria-labelledby="footprints-title">
+      <div class="resume-heading reveal-heading">
+        <div><span class="section-kicker">PERSONAL HISTORY　/　01</span><h2 class="section-title" id="footprints-title" data-i18n="profile_heading">歩みと、指導への想い。</h2></div>
+        <p class="section-intro" data-i18n="profile_intro">パーソナルプラン、しなやかな身体づくり、心身のコンディショニング。指導の背景にある経験と考え方をご紹介します。</p>
+      </div>
+                  <div class="resume-layout">
+        <div class="stats-matrix-wrap">
+          <!-- 2x2 极简数字矩阵按钮（默认第1个选中 active） -->
+          <div class="stats-grid-2x2" role="tablist" aria-label="数据统计">
+            <button class="stat-btn active" type="button" role="tab" aria-selected="true" data-stat="0">
+              <span class="stat-num">3500<small>+</small></span>
+              <span class="stat-label">HOURS / 累计执教</span>
+            </button>
+            <button class="stat-btn" type="button" role="tab" aria-selected="false" data-stat="1">
+              <span class="stat-num">120<small>+</small></span>
+              <span class="stat-label">CASES / 改善个案</span>
+            </button>
+            <button class="stat-btn" type="button" role="tab" aria-selected="false" data-stat="2">
+              <span class="stat-num">92<small>%</small></span>
+              <span class="stat-label">RETENTION / 学员留存</span>
+            </button>
+            <button class="stat-btn" type="button" role="tab" aria-selected="false" data-stat="3">
+              <span class="stat-num text-sm">限量席位</span>
+              <span class="stat-label">CAPACITY / 负荷限流</span>
+            </button>
+          </div>
+
+          <!-- 下方随点击动态滑入放大的详细文案容器 -->
+          <div class="stats-detail-panel">
+            <!-- Item 0 -->
+            <div class="stat-detail-content active" data-stat="0">
+              <h4>累计一对一私教执教超过 3,500 课时</h4>
+              <p>从动作力线评估到周期化进阶训练，涵盖体态重建、运动表现提升与赛前调控，积累了扎实严谨的实战经验。</p>
+            </div>
+            <!-- Item 1 -->
+            <div class="stat-detail-content" data-stat="1">
+              <h4>涵盖体态矫正、减脂及体成分重塑超过 120 例</h4>
+              <p>每一例均基于严苛的生物力学数据与生理节律定制，持续追踪复盘，帮助学员从根本告别代偿与反复反弹。</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="stat-detail-content" data-stat="2">
+              <h4>学员留存率达 92%，以科学进阶赢得长久信赖</h4>
+              <p>不搞过度消耗的填鸭式训练，注重学员自我觉知与持续自立，以细致陪伴建立起长期的师徒信赖与复训。</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="stat-detail-content" data-stat="3">
+              <h4>每月严格限流，仅开放 2-3 个深度定制名额</h4>
+              <p>为确保每位学员都能获得全维度的专注跟进与饮食、睡眠动态调控，长期维持高水准执教品质，拒绝流水线扩招。</p>
+            </div>
+          </div>
+        </div>
+        <div class="pillar-column">
+          <div class="pillar-grid">
+            <article class="pillar-card reveal-item">
+              <div class="pillar-media" role="button" tabindex="0" aria-label="放大查看：职业级动作与姿态评估">
+                <img src="photos/pillar-biomechanics.jpg" alt="职业级动作与姿态评估" loading="lazy" decoding="async">
+              </div>
+              <div class="pillar-body">
+                <span class="pillar-tag" data-i18n="pillar_biomechanics">01 / BIOMECHANICS</span>
+                <h3 class="pillar-title" data-i18n="profile_step_one">動きと姿勢の確認</h3>
+                <p class="pillar-text" data-i18n="profile_step_one_text">現在の動き方や気になる点を伺います。</p>
+                <span class="pillar-credential" data-i18n="credential_pri">本人確認中</span>
+              </div>
+            </article>
+            <article class="pillar-card reveal-item">
+              <div class="pillar-media" role="button" tabindex="0" aria-label="放大查看：运动营养与代谢管理">
+                <img src="photos/pillar-nutrition.jpg" alt="运动营养与代谢管理" loading="lazy" decoding="async">
+              </div>
+              <div class="pillar-body">
+                <span class="pillar-tag" data-i18n="pillar_nutrition">02 / NUTRITION</span>
+                <h3 class="pillar-title" data-i18n="profile_step_two">食習慣と栄養バランス</h3>
+                <p class="pillar-text" data-i18n="profile_step_two_text">日々の食事や生活リズムを一緒に振り返ります。</p>
+                <span class="pillar-credential" data-i18n="credential_issn">本人確認中</span>
+              </div>
+            </article>
+            <article class="pillar-card reveal-item">
+              <div class="pillar-media" role="button" tabindex="0" aria-label="放大查看：神经核心与身体塑形">
+                <img src="photos/pillar-neuro.jpg" alt="神经核心与身体塑形" loading="lazy" decoding="async">
+              </div>
+              <div class="pillar-body">
+                <span class="pillar-tag" data-i18n="pillar_neuro_core">03 / NEURO-CORE</span>
+                <h3 class="pillar-title" data-i18n="profile_step_three">体幹と身体づくり</h3>
+                <p class="pillar-text" data-i18n="profile_step_three_text">目標と状態に合わせた運動を考えます。</p>
+                <span class="pillar-credential" data-i18n="credential_dns">本人確認中</span>
+              </div>
+            </article>
+            <article class="pillar-card reveal-item">
+              <div class="pillar-media" role="button" tabindex="0" aria-label="放大查看：高阶恢复与状态管理">
+                <img src="photos/pillar-recovery.jpg" alt="高阶恢复与状态管理" loading="lazy" decoding="async">
+              </div>
+              <div class="pillar-body">
+                <span class="pillar-tag" data-i18n="pillar_performance">04 / PERFORMANCE</span>
+                <h3 class="pillar-title" data-i18n="profile_step_four">休息とコンディショニング</h3>
+                <p class="pillar-text" data-i18n="profile_step_four_text">無理なく続けられる運動と休息のリズムを整えます。</p>
+                <span class="pillar-credential" data-i18n="profile_step_four_credential">本人確認中</span>
+              </div>
+            </article>
+          </div>
+          <aside class="resume-note" data-i18n="profile_note">経歴・資格は本人確認後に掲載します。確認できない情報は掲載しません。</aside>
+        </div>
+      </div>
+      <div class="resume-services" aria-label="サービスの考え方" data-i18n-aria="services_list">
+        <div class="resume-service"><span>01 / PERSONAL</span><strong data-i18n="profile_service_one">一対一のオーダーメイド</strong></div>
+        <div class="resume-service"><span>02 / NUTRITION</span><strong data-i18n="profile_service_two">食習慣と栄養バランス</strong></div>
+        <div class="resume-service"><span>03 / RECOVERY</span><strong data-i18n="profile_service_three">瞑想・リカバリー・睡眠</strong></div>
+      </div>
+    </section>
+
+    <section class="page-wrap honors-page long-home-section" id="honors" aria-labelledby="honors-title">
+      <div class="honors-heading reveal-heading">
+        <div><span class="section-kicker">COMPETITION · DISCIPLINE · ACHIEVEMENT</span><h2 id="honors-title"><span data-i18n="honors_heading">大会・記録</span><span data-i18n="honors_subheading">COMPETITION RECORD</span></h2></div>
+        <p class="section-intro" data-i18n="honors_intro">大会・出場経歴は、確認できた情報のみ掲載します。</p>
+      </div>
+      <div class="honors-feature">
+        <figure class="honors-image reveal-item"><img src="photos/coach-award.jpg" alt="大会の写真" data-i18n-alt="honors_image_alt" loading="lazy" decoding="async"><figcaption class="honors-image-caption"><span class="display">A MOMENT EARNED</span><h3 data-i18n="honors_photo_heading">ひとつひとつの実績を、<br>大切に記録する。</h3><p data-i18n="honors_photo_note">大会名・年度・結果を確認中</p></figcaption></figure>
+        <article class="honors-record reveal-item">
+          <span class="honors-corner" aria-hidden="true"></span>
+          <div><h3 data-i18n="home_metrics_heading">身体の状態を理解する。</h3><p data-i18n="home_metrics_intro">動き、食事、休息を振り返り、一人ひとりに合った進め方を考えます。</p>
+            <div class="metrics-horizontal-strip">
+              <!-- 单排 4 联机能胶囊按键 -->
+              <div class="metrics-tabs-row" role="tablist" aria-label="身体指标">
+                <button class="metric-tab-btn active" type="button" role="tab" aria-selected="true" data-metric="0">
+                  <span class="m-tag">MOVEMENT</span>
+                  <strong class="m-title">动作筛查</strong>
+                </button>
+                <button class="metric-tab-btn" type="button" role="tab" aria-selected="false" data-metric="1">
+                  <span class="m-tag">BREATH</span>
+                  <strong class="m-title">神经稳固</strong>
+                </button>
+                <button class="metric-tab-btn" type="button" role="tab" aria-selected="false" data-metric="2">
+                  <span class="m-tag">NUTRITION</span>
+                  <strong class="m-title">营养体系</strong>
+                </button>
+                <button class="metric-tab-btn" type="button" role="tab" aria-selected="false" data-metric="3">
+                  <span class="m-tag">RECOVERY</span>
+                  <strong class="m-title">主动恢复</strong>
+                </button>
+              </div>
+
+              <!-- 下方随点击动态切换显示的详细卡片 -->
+              <div class="metric-detail-box">
+                <div class="metric-detail-item active" data-metric="0">
+                  <span class="detail-kicker">FMS 动作筛查 · 动力链系统重建</span>
+                  <p>运用 FMS 功能性动作筛查逐帧拆解动作链，识别深层受限代偿，从根源消除损伤风险并重塑关节正确对位。</p>
+                </div>
+                <div class="metric-detail-item" data-metric="1">
+                  <span class="detail-kicker">DNS 动态神经稳定 · 核心深层激活</span>
+                  <p>以发育运动学（DNS）为理论基底，建立稳固腹内压（IAP）与神经肌肉反射，让力量输出无缝传导。</p>
+                </div>
+                <div class="metric-detail-item" data-metric="2">
+                  <span class="detail-kicker">ISSN 国际营养学 · 长效代谢调节</span>
+                  <p>结合生理代谢节律与抗炎摄入标准，定制可持续坚持的膳食模型，拒绝以破坏自愈力为代价的极端节食。</p>
+                </div>
+                <div class="metric-detail-item" data-metric="3">
+                  <span class="detail-kicker">竞技级主动恢复 · 自律神经平衡</span>
+                  <p>通过呼吸法降阶过度亢奋的交感神经，结合深睡监测与筋膜减压，让身体在安静中完成深度修复。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="section-kicker">VERIFIED DETAILS ONLY</span>
+        </article>
+      </div>
+      <div class="honor-list" aria-label="大会と受賞の記録" data-i18n-aria="honors_list">
+        <article class="honor-entry reveal-item">
+          <span class="honor-corner" aria-hidden="true"></span>
+          <span class="honor-year">2024</span>
+          <div class="honor-body">
+            <span class="honor-tier" data-i18n="honors_global_tier">INTERNATIONAL / 国際</span>
+            <strong data-i18n="honors_global_title">国際大会への出場</strong>
+            <span class="honor-desc" data-i18n="honors_global_pending">大会名・開催地・年を確認中</span>
+          </div>
+        </article>
+        <article class="honor-entry reveal-item">
+          <span class="honor-corner" aria-hidden="true"></span>
+          <span class="honor-year">2023</span>
+          <div class="honor-body">
+            <span class="honor-tier" data-i18n="honors_podium_tier">PODIUM / 受賞</span>
+            <strong data-i18n="honors_podium_title">受賞・入賞記録</strong>
+            <span class="honor-desc" data-i18n="honors_podium_pending">賞状と公式結果を確認後に掲載</span>
+          </div>
+        </article>
+        <article class="honor-entry reveal-item">
+          <span class="honor-corner" aria-hidden="true"></span>
+          <span class="honor-year">2022</span>
+          <div class="honor-body">
+            <span class="honor-tier" data-i18n="honors_story_tier">JOURNEY / 歩み</span>
+            <strong data-i18n="honors_story_title">大会までの歩み</strong>
+            <span class="honor-desc" data-i18n="honors_story_pending">準備期間と本人のエピソードを追加予定</span>
+          </div>
+        </article>
+      </div>
+      <p class="honors-foot reveal-item"><span data-i18n="honors_verify_note">写真だけから大会名、開催年、カテゴリーを推測しません。</span></p>
+    </section>
+
+    <section class="page-wrap coaching-page long-home-section" id="coaching" aria-labelledby="coaching-title">
+      <div class="community-opening reveal-item">
+        <img src="photos/training-community.jpg" alt="木山と受講生、トレーニング仲間の集合写真" data-i18n-alt="coaching_group_alt" loading="lazy" decoding="async">
+        <div class="community-opening-copy"><span class="display">PERSONAL WELLNESS</span><h2 data-i18n="coaching_opening_title">一人ひとりのリズムを、<br>大切に。</h2><p data-i18n="coaching_opening_text">対話から始め、目標に合わせて運動・食事・休息をデザイン。無理なく続けられる健やかな習慣を、一緒につくります。</p></div>
+      </div>
+      <div class="coaching-heading reveal-heading">
+        <div><span class="section-kicker">OBSERVE · PERSONALIZE · RESTORE</span><h2 id="coaching-title" data-i18n="coaching_heading">トレーニングとコンディショニング。</h2></div>
+        <p class="section-intro" data-i18n="coaching_intro">パーソナルプランは運動だけではありません。しなやかな身体づくり、食習慣、ストレスケアと回復まで、暮らしに自然となじむ形で整えます。</p>
+      </div>
+      <div class="coaching-top">
+        <figure class="coaching-photo reveal-item"><img src="photos/coaching-consultation.jpg" alt="コーチと受講生がオーダーメイドプランについて相談" data-i18n-alt="coaching_consult_alt" loading="lazy" decoding="async"><figcaption>PERSONAL COACHING　/　DETAILS MATTER</figcaption></figure>
+        <article class="principles reveal-item">
+          <span class="section-kicker">A PERSONAL METHOD</span><h3 data-i18n="coaching_method_heading">暮らしに合わせたプラン。</h3>
+          <div class="principle"><b>01</b><div><h4 data-i18n="coaching_step_one">一対一のカウンセリング</h4><p data-i18n="coaching_step_one_text">目標、生活リズム、運動経験、現在のコンディションを確認します。</p></div></div>
+          <div class="principle"><b>02</b><div><h4 data-i18n="coaching_step_two">しなやかな身体づくり</h4><p data-i18n="coaching_step_two_text">一人ひとりに合わせて、身体づくりと運動内容を設計します。</p></div></div>
+          <div class="principle"><b>03</b><div><h4 data-i18n="coaching_step_three">無理のない食習慣</h4><p data-i18n="coaching_step_three_text">毎日のコンディションを支える、続けやすい食事を考えます。</p></div></div>
+          <div class="principle"><b>04</b><div><h4 data-i18n="coaching_step_four">瞑想とリカバリー</h4><p data-i18n="coaching_step_four_text">呼吸、休息、リラックスもプログラムに取り入れます。</p></div></div>
+        </article>
+      </div>
+      <div class="bento-grid" aria-label="トレーニングプラン" data-i18n-aria="coaching_bento_label">
+        <article class="bento-card bento-card-wide reveal-item">
+          <span class="bento-corner" aria-hidden="true"></span>
+          <span class="bento-tag" data-i18n="bento_plan_tag">01 / PLAN</span>
+          <h3 data-i18n="bento_plan_title">オーダーメイドの設計</h3>
+          <p data-i18n="bento_plan_text">目標・生活リズム・運動経験を丁寧に確認し、一人ひとりに合わせた周期化プランを設計します。評価データをもとに、無理なく続けられる進め方を組み立てます。</p>
+        </article>
+        <article class="bento-card reveal-item">
+          <span class="bento-corner" aria-hidden="true"></span>
+          <span class="bento-tag" data-i18n="bento_move_tag">02 / MOVE</span>
+          <h3 data-i18n="bento_move_title">しなやかな身体づくり</h3>
+          <p data-i18n="bento_move_text">動作の質を高め、代償のない身体へ。</p>
+        </article>
+        <article class="bento-card reveal-item">
+          <span class="bento-corner" aria-hidden="true"></span>
+          <span class="bento-tag" data-i18n="bento_fuel_tag">03 / FUEL</span>
+          <h3 data-i18n="bento_fuel_title">続けやすい食習慣</h3>
+          <p data-i18n="bento_fuel_text">毎日のコンディションを支える栄養設計。</p>
+        </article>
+        <article class="bento-card bento-card-wide reveal-item">
+          <span class="bento-corner" aria-hidden="true"></span>
+          <span class="bento-tag" data-i18n="bento_restore_tag">04 / RESTORE</span>
+          <h3 data-i18n="bento_restore_title">瞑想とリカバリー</h3>
+          <p data-i18n="bento_restore_text">呼吸・休息・睡眠をプログラムに取り入れ、回復まで含めてトータルに整えます。休むことも計画のうち。心身のリズムを穏やかに調えます。</p>
+        </article>
+      </div>
+      <article class="student-story student-story-copy-only reveal-item">
+        <div class="student-copy"><span class="section-kicker">STUDENT STORY</span><h3 data-i18n="coaching_case_heading">自分に合うプランは、<br>対話から始まる。</h3><p data-i18n="coaching_case_text">目標、期間、日々の変化は、本人の確認後にご紹介します。実際の経験を大切にし、未確認の数字や効果を掲載することはありません。</p><div class="student-meta"><span data-i18n="coaching_case_goal">01　対話と目標の共有</span><span data-i18n="coaching_case_period">02　動きと習慣の確認</span><span data-i18n="coaching_case_feedback">03　計画・実践・振り返り</span></div></div>
+      </article>
+    </section>
+
+    <section class="page-wrap life-page long-home-section" id="life" aria-labelledby="life-title">
+      <div class="life-heading reveal-heading">
+        <div><span class="section-kicker">A QUIETER RHYTHM　/　04</span><h2 id="life-title"><span data-i18n="life_heading_first">日々を整え、</span><br><span data-i18n="life_heading_second">心に余白を。</span></h2></div>
+        <p class="section-intro" data-i18n="life_intro">健やかな暮らしは、いつも完璧でなくていい。食事と運動のリズムを大切にしながら、誰かと過ごす時間や静かなひとときも。</p>
+      </div>
+      <section class="lifestyle-section" id="nourish-section">
+        <!-- 教练用餐温馨主图大卡 -->
+        <div class="life-hero-card reveal-item">
+          <div class="life-hero-img-box">
+            <img src="photos/daily-food.jpg" alt="日式原木餐桌上的三文鱼与溏心蛋" class="life-hero-img" data-i18n-alt="life_hero_alt" loading="lazy" decoding="async">
+          </div>
+          <div class="life-hero-content">
+            <div class="capsule-tag" data-i18n="life_hero_kicker">HOME & DAILY / 陪伴与日常</div>
+            <h3 class="life-hero-title" data-i18n="life_hero_heading">不和身体对抗，在日常里自然代谢</h3>
+            <p class="life-hero-desc" data-i18n="life_hero_text">生活不是一场关于卡路里的精确计算，身体也不是需要时刻防备的对手。认真吃好每一餐，当身体得到真正需要的天然营养与滋养，代谢和自愈力就会在平淡的日常里悄然醒来。不为难自己，不苛求完美。你会发现，健康与轻盈，原来是这么自然、不着痕迹的一件事。</p>
+          </div>
+        </div>
+
+        <!-- 图文一体 · 机能功效卡片（横向轻滑轮播） -->
+        <div class="nutrition-architecture reveal-item">
+          <div class="section-sub-header">
+            <span class="neon-pill" data-i18n="nutrition_pill">ISSN CERTIFIED / 国际运动营养科学实践</span>
+            <h4 class="sub-title" data-i18n="nutrition_subtitle">不计较卡路里，用科学搭配唤醒自愈代谢</h4>
+          </div>
+
+          <div class="meal-cards-stage" aria-label="科学餐盘灵感" data-i18n-aria="meal_stack_label">
+            <!-- 卡片 1：牛排慢碳 -->
+            <article class="meal-card">
+              <div class="meal-card-media">
+                <img src="https://mealpractice.b-cdn.net/79017097035911168/juicy-grilled-steak-with-roasted-sweet-potatoes-and-grilled-asparagus-bqal8JWIFY.webp" alt="香煎牛排慢碳红薯" loading="lazy" decoding="async">
+              </div>
+              <div class="meal-card-body">
+                <span class="meal-card-tag" data-i18n="meal_card_one_tag">ENERGY & REBUILD</span>
+                <ul class="meal-card-benefits">
+                  <li data-i18n="meal_card_one_b1">稳定血糖波峰，避免脂肪堆积</li>
+                  <li data-i18n="meal_card_one_b2">深度供给红肉铁与氨基酸，加速肌肉重塑</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 卡片 2：三文鱼抗炎碗 -->
+            <article class="meal-card">
+              <div class="meal-card-media">
+                <img src="https://21917313.fs1.hubspotusercontent-na1.net/hubfs/21917313/AI-Generated%20Media/Images/A%20colorful%20and%20nutrientpacked%20salmon%2C%20quinoa%2C%20and%20avocado%20salad%2C%20with%20fresh%20herbs%20and%20veggies%2C%20served%20on%20a%20white%20plate.jpeg" alt="三文鱼藜麦牛油果抗炎碗" loading="lazy" decoding="async">
+              </div>
+              <div class="meal-card-body">
+                <span class="meal-card-tag" data-i18n="meal_card_two_tag">ANTI-INFLAMMATORY</span>
+                <ul class="meal-card-benefits">
+                  <li data-i18n="meal_card_two_b1">丰富 Omega-3，清除体内隐性慢性炎症</li>
+                  <li data-i18n="meal_card_two_b2">调节神经恢复敏感度，提升夜间燃脂效率</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 卡片 3：溏心蛋高纤碗 -->
+            <article class="meal-card">
+              <div class="meal-card-media">
+                <img src="https://kaleandberries.com/wp-content/uploads/2026/04/savory-oatmeal-bowl-high-protein-kale-and-berries-scaled.jpg" alt="流心蛋谷物轻食碗" loading="lazy" decoding="async">
+              </div>
+              <div class="meal-card-body">
+                <span class="meal-card-tag" data-i18n="meal_card_three_tag">GUT & BALANCE</span>
+                <ul class="meal-card-benefits">
+                  <li data-i18n="meal_card_three_b1">滋养肠道有益菌，告别餐后水肿与昏睡</li>
+                  <li data-i18n="meal_card_three_b2">维持平稳荷尔蒙节律，全天精力自洽</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="lifestyle-section" id="reset-section">
+        <div class="reset-card reveal-item">
+          <div class="capsule-tag" data-i18n="life_detail_two_kicker">02 / RESET & BREATH / 降噪与静定</div>
+          <h3 class="reset-title" data-i18n="life_detail_two_title">在呼吸与静定中，卸下身体与情绪的重负</h3>
+
+          <!-- 极具格调的暗黑禅意大图（独立展示、绝不压字） -->
+          <div class="reset-img-box">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="冥想静坐专注呼吸" class="reset-img" data-i18n-alt="life_detail_two_image_alt" loading="lazy" decoding="async">
+          </div>
+
+          <!-- 下方深度文案解析 -->
+          <div class="reset-content-list">
+            <div class="reset-item">
+              <span class="neon-dot" aria-hidden="true"></span>
+              <div class="reset-text" data-i18n="reset_point_one"><strong>降解皮质醇与神经紧绷：</strong>现代人的疲惫，多半来自过度运转的交感神经。试着坐下来，合上眼，把注意力重新还给自己的每一次吸气、呼气。当你的呼吸慢下来，狂奔的交感神经就会得到安抚，皮质醇与焦虑感开始自然消退。</div>
+            </div>
+            <div class="reset-item">
+              <span class="neon-dot" aria-hidden="true"></span>
+              <div class="reset-text" data-i18n="reset_point_two"><strong>动作之外的向内觉知：</strong>真正的力量不止于铁馆的负重，更在于向内觉知自己的呼吸与情绪，找回身体与心智的掌控感。肌肉的控制始于神经的感知，学会静定，才能拥有更敏锐的身体爆发力。</div>
+            </div>
+            <div class="reset-item">
+              <span class="neon-dot" aria-hidden="true"></span>
+              <div class="reset-text" data-i18n="reset_point_three"><strong>刚柔并济的身心自洽：</strong>身体的改变，从来不只是体态，更是你开始学会在这喧嚣的世界里，重新温和地接纳并安顿好自己的身心。最好的身体状态，永远是充沛的力量与内心的从容自洽。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= 模块一：课时费用方案与三大人群定制计划 ================= -->
+    <section class="page-wrap plans-page long-home-section" id="plans-and-pricing" aria-labelledby="plans-title">
+      <div class="plans-heading reveal-heading">
+        <div>
+          <span class="section-kicker" data-i18n="plans_kicker">SYSTEM & INVESTMENT / 课程收费与定制体系</span>
+          <h2 class="section-title" id="plans-title" data-i18n="plans_heading">透明化的专业投入，针对全生命周期的精准规划</h2>
+        </div>
+        <p class="section-intro" data-i18n="plans_intro">引进日本科学私教标准，从功能评估到周期进阶，根据不同人群的生活节奏与生理特质深度定制。</p>
+      </div>
+
+      <!-- 人群选择 Tab 切换器 -->
+      <div class="plan-tabs reveal-item" role="tablist" aria-label="受训人群" data-i18n-aria="plans_tabs_label">
+        <button class="plan-tab is-active" type="button" role="tab" aria-selected="true" data-plan-tab="men" data-i18n="plans_tab_men">MEN / 力量与体型重塑</button>
+        <button class="plan-tab" type="button" role="tab" aria-selected="false" data-plan-tab="women" data-i18n="plans_tab_women">WOMEN / 优雅体态与抗炎塑形</button>
+        <button class="plan-tab" type="button" role="tab" aria-selected="false" data-plan-tab="senior" data-i18n="plans_tab_senior">SENIOR / 介護予防 · 自立支援</button>
+      </div>
+
+      <!-- 三大人群定制内容面板 -->
+      <div class="plan-panels reveal-item">
+        <article class="plan-panel is-active" data-plan-panel="men" role="tabpanel">
+          <span class="plan-panel-tag" data-i18n="plans_men_tag">MEN / 男性专轨</span>
+          <h3 class="plan-panel-title" data-i18n="plans_men_title">破除代偿损伤、肌肥大与力量稳固、雄性激素与代谢长效维持</h3>
+          <ul class="plan-points">
+            <li data-i18n="plans_men_p1">脊柱与骨盆承重动力学矫正，规避深蹲硬拉伤痛</li>
+            <li data-i18n="plans_men_p2">渐进式超负荷周期力量训练，打造高密度肌肉线条</li>
+            <li data-i18n="plans_men_p3">ISSN 代谢调控：维持平稳高睾酮水平，瓦解顽固腹部内脏脂肪</li>
+          </ul>
+        </article>
+        <article class="plan-panel" data-plan-panel="women" role="tabpanel" hidden>
+          <span class="plan-panel-tag" data-i18n="plans_women_tag">WOMEN / 女性专轨</span>
+          <h3 class="plan-panel-title" data-i18n="plans_women_title">深层核心激活、假胯宽与圆肩驼背重塑、内分泌与低压力体质</h3>
+          <ul class="plan-points">
+            <li data-i18n="plans_women_p1">呼吸与盆底肌深层核心对位，改善骨盆前倾/侧倾</li>
+            <li data-i18n="plans_women_p2">全身筋膜链轻阻力雕塑，打造舒展修长线条，绝不练出笨重粗壮</li>
+            <li data-i18n="plans_women_p3">抗炎膳食追踪：调和皮质醇与经期节律，消除水肿易胖循环</li>
+          </ul>
+        </article>
+        <article class="plan-panel" data-plan-panel="senior" role="tabpanel" hidden>
+          <span class="plan-panel-tag" data-i18n="plans_senior_tag">SENIOR / 长者介护预防专轨（日本健康寿命延伸标准）</span>
+          <h3 class="plan-panel-title" data-i18n="plans_senior_title">防跌倒步态平衡、肌少症（Sarcopenia）逆转、日常生活机能自立</h3>
+          <ul class="plan-points">
+            <li data-i18n="plans_senior_p1">前庭觉与本体感觉平衡训练，从根源规避意外跌倒风险</li>
+            <li data-i18n="plans_senior_p2">低负荷抗阻与关节灵活性（ROM）养护，保护退行性膝髋关节</li>
+            <li data-i18n="plans_senior_p3">日常生活动作（ADL）专项强化：起坐、步态、提物轻松自如，减轻家庭照护负担</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- 课时收费与梯度方案卡片 -->
+      <div class="pricing-grid reveal-item">
+        <article class="pricing-card">
+          <span class="pricing-corner" aria-hidden="true"></span>
+          <span class="pricing-tag" data-i18n="pricing_eval_tag">EVALUATION</span>
+          <span class="pricing-duration" data-i18n="pricing_eval_duration">75 MIN</span>
+          <h3 class="pricing-title" data-i18n="pricing_eval_title">初回深度功能评估与体验</h3>
+          <p class="pricing-price"><span data-i18n="plan_1_price">¥500</span><em data-i18n="plan_1_unit"> / 75分钟（仅限新客体验）</em></p>
+          <p class="pricing-freq" data-i18n="pricing_eval_freq">建议频率：单次体验诊断</p>
+          <ul class="pricing-split">
+            <li data-i18n="pricing_eval_s1"><b>15 min</b> 深度病史与生活节律问诊（痛点/睡眠/饮食习惯）</li>
+            <li data-i18n="pricing_eval_s2"><b>30 min</b> 静态力线拍摄 + FMS/关节活动度（ROM）动态动作筛查</li>
+            <li data-i18n="pricing_eval_s3"><b>20 min</b> 针对性代偿矫正训练（测试深层肌肉激活反馈）</li>
+            <li data-i18n="pricing_eval_s4"><b>10 min</b> 个人身体机能诊断总结与周期规划建议</li>
+          </ul>
+        </article>
+        <article class="pricing-card is-featured">
+          <span class="pricing-corner" aria-hidden="true"></span>
+          <span class="pricing-badge" data-i18n="pricing_featured_badge">主推</span>
+          <span class="pricing-tag" data-i18n="pricing_trans_tag">TRANSFORMATION</span>
+          <span class="pricing-duration" data-i18n="pricing_trans_duration">60 MIN / 节</span>
+          <h3 class="pricing-title" data-i18n="pricing_trans_title">周期蜕变进阶方案</h3>
+          <p class="pricing-price"><span data-i18n="plan_2_price">¥600</span><em data-i18n="plan_2_unit"> / 节（24 课时套餐 · 有效期 4 个月）</em></p>
+          <p class="pricing-freq" data-i18n="pricing_trans_freq">建议频率：每周 2 - 3 次</p>
+          <ul class="pricing-split">
+            <li data-i18n="pricing_trans_s1"><b>08 min</b> 肌筋膜激活与呼吸腹内压重置（规避运动代偿）</li>
+            <li data-i18n="pricing_trans_s2"><b>42 min</b> 核心抗阻与动作模式强化（根据人群专轨进阶）</li>
+            <li data-i18n="pricing_trans_s3"><b>10 min</b> PNF 被动拉伸、深层筋膜放松与交感神经降阶</li>
+          </ul>
+          <p class="pricing-benefits" data-i18n="pricing_trans_benefits">专属权益：1对1全流程执教 + 每周 ISSN 饮食营养打卡调整 + 每 4 周体态力线复测</p>
+        </article>
+        <article class="pricing-card">
+          <span class="pricing-corner" aria-hidden="true"></span>
+          <span class="pricing-tag" data-i18n="pricing_long_tag">LONG-TERM WELLNESS</span>
+          <span class="pricing-duration" data-i18n="pricing_long_duration">60 MIN / 节</span>
+          <h3 class="pricing-title" data-i18n="pricing_long_title">长程身心管理与介护预防</h3>
+          <p class="pricing-price"><span data-i18n="plan_3_price">¥550</span><em data-i18n="plan_3_unit"> / 节（48 课时套餐 · 有效期 8 个月）</em></p>
+          <p class="pricing-freq" data-i18n="pricing_long_freq">建议频率：每周 2 次长期维护</p>
+          <ul class="pricing-split">
+            <li data-i18n="pricing_long_s1"><b>10 min</b> 关节润滑、前庭觉与本体平衡激活（长者/疼痛专项）</li>
+            <li data-i18n="pricing_long_s2"><b>40 min</b> 功能自立阻力训练或高密度力量重塑</li>
+            <li data-i18n="pricing_long_s3"><b>10 min</b> 神经系统静定与自律神经调节呼吸</li>
+          </ul>
+          <p class="pricing-benefits" data-i18n="pricing_long_benefits">专属权益：全周期健康生命管理 + 长者家属生活照护协同方案 + 黄金预约时段优先锁定</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 模块二：初回专属身体机能评估意向表 ================= -->
+    <section class="page-wrap intake-page long-home-section" id="intake-form-section" aria-labelledby="intake-title">
+      <div class="intake-heading reveal-heading">
+        <div>
+          <span class="section-kicker" data-i18n="intake_kicker">INITIAL INTAKE / 初回身体机能评估登记</span>
+          <h2 class="section-title" id="intake-title" data-i18n="intake_heading">开启定制前，先让我们了解你的身体</h2>
+        </div>
+        <p class="section-intro" data-i18n="intake_intro">每具身体都是一座独特的精密建筑。花费 1 分钟勾选你的现状与诉求，教练将在沟通时为你提供针对性的动作与代谢初评建议。</p>
+      </div>
+
+      <form class="intake-form reveal-item" id="intake-form" novalidate>
+        <!-- 字段 A：受训人群与年龄 -->
+        <fieldset class="intake-field">
+          <legend class="intake-legend" data-i18n="intake_field_a">A / 受训人群与年龄</legend>
+          <div class="intake-row">
+            <span class="intake-label" data-i18n="intake_identity_label">咨询身份</span>
+            <div class="chip-group" data-chip-group="identity" data-chip-mode="single">
+              <button class="chip" type="button" data-value="self" data-i18n="intake_identity_self">为自己咨询</button>
+              <button class="chip" type="button" data-value="parent" data-i18n="intake_identity_parent">为父母/长辈咨询</button>
+            </div>
+          </div>
+          <div class="intake-row">
+            <span class="intake-label" data-i18n="intake_age_label">年龄区间</span>
+            <div class="chip-group" data-chip-group="age" data-chip-mode="single">
+              <button class="chip" type="button" data-value="20-35" data-i18n="intake_age_1">20-35岁</button>
+              <button class="chip" type="button" data-value="36-50" data-i18n="intake_age_2">36-50岁</button>
+              <button class="chip" type="button" data-value="51-65" data-i18n="intake_age_3">51-65岁</button>
+              <button class="chip" type="button" data-value="65+" data-i18n="intake_age_4">65岁以上 (介护预防)</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 字段 B：当前最想解决的问题（多选） -->
+        <fieldset class="intake-field">
+          <legend class="intake-legend" data-i18n="intake_field_b">B / 当前最想解决的问题（可多选）</legend>
+          <div class="chip-group" data-chip-group="issues" data-chip-mode="multi">
+            <button class="chip" type="button" data-value="pain" data-i18n="intake_issue_1">慢性久坐酸痛（腰/颈/肩）</button>
+            <button class="chip" type="button" data-value="posture" data-i18n="intake_issue_2">体态力线代偿（圆肩/骨盆前倾）</button>
+            <button class="chip" type="button" data-value="fat" data-i18n="intake_issue_3">顽固脂肪 / 代谢低下易水肿</button>
+            <button class="chip" type="button" data-value="muscle" data-i18n="intake_issue_4">肌肉量流失 / 力量与耐力不足</button>
+            <button class="chip" type="button" data-value="joint" data-i18n="intake_issue_5">关节退行 / 防跌倒自立支援（长者）</button>
+            <button class="chip" type="button" data-value="stress" data-i18n="intake_issue_6">高压失眠 / 皮质醇失调</button>
+          </div>
+        </fieldset>
+
+        <!-- 字段 C：核心期望目标（单选） -->
+        <fieldset class="intake-field">
+          <legend class="intake-legend" data-i18n="intake_field_c">C / 核心期望目标</legend>
+          <div class="chip-group" data-chip-group="goal" data-chip-mode="single">
+            <button class="chip" type="button" data-value="pain-free" data-i18n="intake_goal_1">疼痛归零 · 体态舒展</button>
+            <button class="chip" type="button" data-value="build" data-i18n="intake_goal_2">增肌塑形 · 体脂精炼</button>
+            <button class="chip" type="button" data-value="function" data-i18n="intake_goal_3">恢复机能 · 健康寿命延伸</button>
+          </div>
+        </fieldset>
+
+        <!-- 字段 D：运动基础与旧伤受限 -->
+        <fieldset class="intake-field">
+          <legend class="intake-legend" data-i18n="intake_field_d">D / 运动基础与旧伤受限</legend>
+          <div class="intake-row">
+            <span class="intake-label" data-i18n="intake_habit_label">运动习惯</span>
+            <div class="chip-group" data-chip-group="habit" data-chip-mode="single">
+              <button class="chip" type="button" data-value="none" data-i18n="intake_habit_1">零基础 / 长期久坐</button>
+              <button class="chip" type="button" data-value="light" data-i18n="intake_habit_2">偶尔慢跑 / 拉伸</button>
+              <button class="chip" type="button" data-value="regular" data-i18n="intake_habit_3">有规律健身习惯</button>
+            </div>
+          </div>
+          <div class="intake-row">
+            <label class="intake-label" for="intake-injury" data-i18n="intake_injury_label">既往受限备注</label>
+            <input class="intake-input" id="intake-injury" name="injury" type="text" autocomplete="off" placeholder="输入旧伤史（腰椎、半月板或关节不适，选填）" data-i18n-placeholder="intake_injury_placeholder">
+          </div>
+        </fieldset>
+
+        <!-- 字段 E：联系信息与预约提交 -->
+        <fieldset class="intake-field">
+          <legend class="intake-legend" data-i18n="intake_field_e">E / 联系信息与预约提交</legend>
+          <div class="intake-row">
+            <label class="intake-label" for="intake-name" data-i18n="intake_name_label">希望如何称呼你</label>
+            <input class="intake-input" id="intake-name" name="name" type="text" autocomplete="name" placeholder="叫我小美 / 彭于晏分晏？" data-i18n-placeholder="intake_name_placeholder">
+          </div>
+          <div class="intake-row">
+            <label class="intake-label" for="intake-contact" data-i18n="intake_contact_label">联系方式</label>
+            <input class="intake-input" id="intake-contact" name="contact" type="text" autocomplete="tel" placeholder="微信 / WhatsApp / 手机号" data-i18n-placeholder="intake_contact_placeholder">
+          </div>
+          <button class="intake-submit" id="submit-intake-btn" type="submit" data-i18n="intake_submit">生成评估并提交预约</button>
+          <p class="intake-feedback" id="intake-feedback" role="status" aria-live="polite" hidden>
+            <span class="intake-check" aria-hidden="true">✓</span>
+            <span data-i18n="intake_feedback">评估意向已生成！请直接点击下方社交按钮添加教练，优先锁定初回评估席位。</span>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- ================= 档案生成成功弹窗（方案一：自动复制 + 直达发送） ================= -->
+    <div class="dossier-success-modal" id="dossier-modal" role="dialog" aria-modal="true" aria-labelledby="dossier-modal-title" hidden>
+      <div class="dossier-modal-backdrop" data-dossier-close></div>
+      <div class="dossier-modal-panel" role="document">
+        <button class="dossier-modal-close" type="button" aria-label="关闭" data-i18n-aria="dossier_close" data-dossier-close>×</button>
+        <h3 class="dossier-modal-title" id="dossier-modal-title">
+          <span class="dossier-modal-check" aria-hidden="true">✓</span>
+          <span data-i18n="dossier_title">专属评估档案已生成！</span>
+        </h3>
+        <span class="dossier-status-tag" data-i18n="dossier_copied_tag">已自动复制到剪贴板</span>
+        <pre class="dossier-preview" id="dossier-preview"></pre>
+        <p class="dossier-guide" data-i18n="dossier_guide">请选择下方任一方式，将档案直接发送给教练，优先锁定初回评估席位。</p>
+        <div class="dossier-actions">
+          <a class="dossier-btn dossier-btn-whatsapp" id="dossier-whatsapp" href="#" target="_blank" rel="noopener">
+            <span data-i18n="dossier_whatsapp">前往 WhatsApp 直发</span>
+          </a>
+          <button class="dossier-btn dossier-btn-wechat" id="dossier-wechat" type="button">
+            <span data-i18n="dossier_wechat">复制微信号并前往微信</span>
+          </button>
+        </div>
+        <p class="dossier-toast" id="dossier-toast" role="status" aria-live="polite" hidden></p>
+      </div>
+    </div>
+
+    <div class="showcase-actions social-actions reveal-item">
+      <a class="showcase-cta social-cta" href="#" data-social="instagram">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <span data-i18n="social_instagram">Instagram</span>
+      </a>
+      <a class="showcase-cta social-cta" href="#" data-social="whatsapp">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg>
+        <span data-i18n="social_whatsapp">WhatsApp</span>
+      </a>
+      <a class="showcase-cta social-cta" href="#" data-social="line">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path></svg>
+        <span data-i18n="social_line">LINE</span>
+      </a>
+      <a class="showcase-cta social-cta" href="#" data-social="wechat">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.032zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"></path></svg>
+        <span data-i18n="social_wechat">WeChat</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- ================= 页脚：独立开发者署名（低调机能风） ================= -->
+  <footer class="site-footer">
+    <div class="site-credit-wrap">
+      <div class="studio-credit-badge">
+        <span class="credit-brand">Designed & Developed by <strong class="brand-name">BIN.STUDIO</strong></span>
+        <span class="credit-divider">·</span>
+        <span class="credit-service">独立设计开发</span>
+        <a href="tel:19960809899" class="credit-tel" aria-label="拨打电话咨询网站开发">
+          <span class="tel-num">199 6080 9899</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= 暗黑机能风照片灯箱（Lightbox） ================= -->
+  <div class="photo-modal" id="photo-modal" role="dialog" aria-modal="true" aria-label="照片预览" hidden>
+    <div class="photo-modal-backdrop" data-photo-close></div>
+    <button class="photo-modal-close" type="button" aria-label="关闭预览" data-photo-close>×</button>
+    <figure class="photo-modal-figure">
+      <img class="photo-modal-img" id="photo-modal-img" src="" alt="">
+      <figcaption class="photo-modal-caption">
+        <span class="photo-modal-title" id="photo-modal-title"></span>
+        <span class="photo-modal-credential" id="photo-modal-credential"></span>
+      </figcaption>
+    </figure>
+  </div>
+  <nav class="home-section-nav" aria-label="メインナビゲーション" data-i18n-aria="main_navigation">
+    <span class="dock-glow" aria-hidden="true"></span>
+    <a href="#me" class="is-active" data-section="me" data-i18n="nav_home">ホーム</a>
+    <a href="#footprints" data-section="footprints" data-i18n="nav_profile">プロフィール</a>
+    <a href="#honors" data-section="honors" data-i18n="nav_honors">大会・実績</a>
+    <a href="#coaching" data-section="coaching" data-i18n="nav_coaching">トレーニング</a>
+    <a href="#life" data-section="life" data-i18n="nav_life">日々の暮らし</a>
+  </nav>
+  <script src="language.js"></script>
+  <script src="home-navigation.js"></script>
+</body>
+</html>
